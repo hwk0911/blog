@@ -12,4 +12,9 @@ public class PostController {
 	public String postList() {
 		return "/post/postList";
 	}
+	
+	@GetMapping("/write")
+	public String postWrite() {
+		return "/post/write";
+	}
 }
