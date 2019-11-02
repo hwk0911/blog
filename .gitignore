@@ -1,1 +1,9 @@
-.metadata/
+*/EXCELK_BLOG/.classpath
+*/EXCELK_BLOG/.project
+*/EXCELK_BLOG/.settings/
+*/.metadata/
+*/Servers/
+*/.project
+*/my-excelk/target/
+*/my-excelk/HELP.md
+*/RemoteSystemsTempFiles/
