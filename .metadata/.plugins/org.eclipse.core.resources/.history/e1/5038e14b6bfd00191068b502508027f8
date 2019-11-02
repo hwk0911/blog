@@ -1,8 +1,0 @@
-package blog.excelk.net.web;
-
-import org.springframework.stereotype.Controller;
-
-@Controller
-public class PostController {
-
-}
