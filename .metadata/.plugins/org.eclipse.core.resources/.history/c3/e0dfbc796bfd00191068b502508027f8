@@ -1,0 +1,11 @@
+package blog.excelk.net.web;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController("/post")
+public class PostController {
+	@GetMapping("/postList")
+	public String postList() {
+		
+	}
+}

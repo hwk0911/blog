@@ -1,0 +1,14 @@
+package blog.excelk.net;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class HomeController{
+	
+	@GetMapping("")
+	public String Home() {
+		System.out.println("인식완료");
+		return "index";
+	}
+}
