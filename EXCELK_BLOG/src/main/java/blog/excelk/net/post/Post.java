@@ -80,6 +80,19 @@ public class Post implements Serializable{
 		return text;
 	}
 	
+	public void update(Post newPost) {
+		this.topic = newPost.topic;
+		this.email = newPost.email;
+		this.text = newPost.text;
+		this.board = newPost.board;
+	}
 	
+	public boolean matchPassword(String newPassword) {
+		if (newPassword == null) {
+			return false;
+		}
+
+		return newPassword.equals(password);
+	}
 		
 }
