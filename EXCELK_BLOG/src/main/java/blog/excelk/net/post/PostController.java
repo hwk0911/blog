@@ -35,6 +35,20 @@ public class PostController {
 		return "redirect:/posts";
 	}
 	
+	@GetMapping("{id}/postView")
+	public String Update(@PathVariable Long id, Post viewPost, Model model) {
+		viewPost = postRepository.findById(id).get();
+		if(viewPost == null) {
+			return "redirect:/posts";
+		}
+		viewPost.increaseViewCount();
+		viewPost.update(viewPost);
+		postRepository.save(viewPost);
+		model.addAttribute("posts", viewPost);		
+		System.out.println(viewPost);
+		return "/post/postView";
+	}
+	
 	@PostMapping("")
 	public String create(Post post, Model model) {
 		postRepository.save(post);
@@ -49,14 +63,5 @@ public class PostController {
 		return "/post/postList";
 	}
 	
-	@GetMapping("{id}/postView")
-	public String Update(@PathVariable Long id, Post viewPost, Model model) {
-		viewPost = postRepository.findById(id).get();
-		model.addAttribute("posts", viewPost);
-		if(viewPost == null) {
-			return "";
-		}
-		System.out.println(viewPost);
-		return "/post/postView";
-	}
+	
 }
