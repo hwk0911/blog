@@ -28,9 +28,19 @@ public class Post implements Serializable{
 	
 	@Column(name = "TOPIC", nullable = false)
 	private String topic;
+	
+	@Column(name = "YMD")
+	private String YMD;
+	
+	@Column(name = "VIEWCOUNT")
+	private int viewCount = 0;
 
 	
 	
+	public void increaseViewCount() {
+		this.viewCount++;
+	}
+
 	public String getTopic() {
 		return topic;
 	}
@@ -53,15 +63,14 @@ public class Post implements Serializable{
 
 	public void setText(String text) {
 		this.text = text;
-	}
+	}	
 
-	
 	
 
 	@Override
 	public String toString() {
 		return "Post [id=" + id + ", email=" + email + ", password=" + password + ", board=" + board + ", text=" + text
-				+ ", topic=" + topic + "]";
+				+ ", topic=" + topic + ", YMD=" + YMD + ", viewCount=" + viewCount + "]";
 	}
 
 	public String getEmail() {
