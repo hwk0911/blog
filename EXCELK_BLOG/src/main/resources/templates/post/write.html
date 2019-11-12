@@ -7,13 +7,14 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 {{> include/header}}
+
 </head>
+
 <body>
 	{{> include/navigation}}
-
 	<div class="container" id="main">
 		<div class="panel panel-default content-main">
-			<form name="question" method="post" action="/posts">
+			<form name="write" method="post" action="/posts">
 				<div class="form-group">
 					<label for="exampleFormControlSelect1">게시판 선택</label> <select
 						class="form-control" id="board" name="board">
@@ -43,6 +44,7 @@
 						placeholder="Password">
 				</div>
 				<p align="right">
+					입력칸 중 하나라도 빈칸이 있으면 작성이 불가합니다               
 					<button type="submit" class="btn btn-secondary btn-sm">작성하기</button>
 				</p>
 				<div class="clearfix" />
@@ -50,16 +52,6 @@
 		</div>
 	</div>
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="/webjars/jquery/3.4.1/dist/jquery.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script src="/webjars/popper.js/1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script src="/webjars/bootstrap/4.3.1/dist/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+{{> include/popper}}
 </body>
 </html>
