@@ -9,43 +9,10 @@
 {{> include/header}}
 </head>
 <body>
-	{{> include/navigation}}
-	<div class="container" id="main">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>날짜</th>
-					<th>조회수</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>0911</td>
-					<td>mustache 적용 전 게시판 test.. test..</td>
-					<td>EXCELK</td>
-					<td>2019-11-02</td>
-					<td>1</td>
-				</tr>
-			</tbody>
-		</table>
-		<p align="right">
-			<a href="#"></a>
-			<button type="button" onclick="location.href='/posts/write'" class="btn btn-secondary btn-sm" >작성하기</button>
-		</p>
-	</div>
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="/webjars/jquery/3.4.1/dist/jquery.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script src="/webjars/popper.js/1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script src="/webjars/bootstrap/4.3.1/dist/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+{{> include/navigation}} 
+
+
+
+{{> include/popper}}
 </body>
 </html>
