@@ -22,11 +22,12 @@ public class PostController {
 		return "/post/write";
 	}
 
-	@PostMapping("{id}/{password}/postUpdate")
-	public String postWrite(@PathVariable Long id, @PathVariable String password, Post postUpdate) {
+	@PostMapping("{id}/{newPassword}/postUpdate")
+	public String postWrite(@PathVariable Long id, String newPassword, Post postUpdate) {
 		Post post = postRepository.findById(id).get();
-		System.out.println(password);
-		if (post.matchPassword(password)) {
+		System.out.println(newPassword);
+		System.out.println(post.getPassword());
+		if (!post.matchPassword(newPassword)) {
 			System.out.println("비밀번호 에러");
 			return "redirect:/posts";
 		}
