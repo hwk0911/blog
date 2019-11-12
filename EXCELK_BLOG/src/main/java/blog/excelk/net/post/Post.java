@@ -101,7 +101,7 @@ public class Post implements Serializable{
 			return false;
 		}
 
-		return newPassword.equals(password);
+		return this.password.equals(newPassword);
 	}
 		
 }
