@@ -1,5 +1,7 @@
 package blog.excelk.net.post;
 
+import java.io.PrintWriter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,9 +25,10 @@ public class PostController {
 	@PostMapping("{id}/{password}/postUpdate")
 	public String postWrite(@PathVariable Long id, @PathVariable String password, Post postUpdate) {
 		Post post = postRepository.findById(id).get();
-		if (!post.matchPassword(password)) {
+		System.out.println(password);
+		if (post.matchPassword(password)) {
 			System.out.println("비밀번호 에러");
-			return "redircet:/posts";
+			return "redirect:/posts";
 		}
 		post.update(postUpdate);
 		postRepository.save(post);
@@ -50,6 +53,9 @@ public class PostController {
 
 	@PostMapping("")
 	public String create(Post post, Model model) {
+		if(post.getTopic() == "" || post.getText() == "" || post.getEmail() == "" || post.getPassword() == "") {
+			return "redirect:/posts/write/#";
+		}
 		postRepository.save(post);
 		System.out.println(post.toString());
 		return "redirect:/posts";
