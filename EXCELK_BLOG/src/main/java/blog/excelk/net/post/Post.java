@@ -101,7 +101,12 @@ public class Post implements Serializable{
 			return false;
 		}
 
-		return this.password.equals(newPassword);
+		if (password.equals(newPassword)){
+			System.out.println("PASSWORD TRUE");
+			return true;
+		}
+		
+		return false;
 	}
 		
 }
