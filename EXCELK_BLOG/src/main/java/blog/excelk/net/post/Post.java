@@ -29,7 +29,7 @@ public class Post implements Serializable{
 	@Column(name = "TOPIC", nullable = false)
 	private String topic;
 	
-	@Column(name = "YMD")
+	@Column(name = "YMD", nullable = true)
 	private String YMD;
 	
 	@Column(name = "VIEWCOUNT")
@@ -63,9 +63,11 @@ public class Post implements Serializable{
 
 	public void setText(String text) {
 		this.text = text;
-	}	
+	}		
 
-	
+	public void setYMD(String YMD) {
+		this.YMD = YMD;
+	}
 
 	@Override
 	public String toString() {

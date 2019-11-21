@@ -1,6 +1,7 @@
 package blog.excelk.net.post;
 
-import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,11 +55,17 @@ public class PostController {
 
 	@PostMapping("")
 	public String create(Post post, Model model) {
-		if(post.getTopic() == "" || post.getText() == "" || post.getEmail() == "" || post.getPassword() == "") {
+		if (post.getTopic() == "" || post.getText() == "" || post.getEmail() == "" || post.getPassword() == "") {
 			return "redirect:/posts/write/#";
 		}
-		postRepository.save(post);
+		long time = System.currentTimeMillis(); 
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		String YMD = dayTime.format(new Date(time));
+		System.out.println(YMD);
+		
+		post.setYMD(YMD);
 		System.out.println(post.toString());
+		postRepository.save(post);
 		return "redirect:/posts";
 	}
 
