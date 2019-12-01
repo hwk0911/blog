@@ -59,7 +59,7 @@ public class PostController {
 			return "redirect:/posts/write/#";
 		}
 		long time = System.currentTimeMillis(); 
-		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String YMD = dayTime.format(new Date(time));
 		System.out.println(YMD);
 		
