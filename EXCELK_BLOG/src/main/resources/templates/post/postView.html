@@ -13,32 +13,27 @@
 	<div class="container" id="main">
 		<div class="panel panel-default content-main">		
 			{{#posts}}	
-			<form name="question" method="post" action="/posts/{{id}}/{{password}}/postUpdate">
+			<form name="question" method="post" action="/posts/{{id}}/postModify">
 				<div class="form-group">
-					<label for="exampleFormControlSelect1">게시판 선택</label> <select
-						class="form-control" id="board" name="board">
-						<option>{{board}}</option>
-						<option>질문</option>
-						<option>프로젝트</option>
-						<option>자유</option>
-					</select>
+					<label for="exampleFormControlInput1">게시판</label> <input type="text"
+						class="form-control" id="board" name="board" placeholder="게시판" value="{{board}}" readonly/>
 				</div>
 				<div class="form-group">
 					<label for="exampleFormControlInput1">제목</label> <input type="text"
-						class="form-control" id="topic" name="topic" placeholder="제목" value="{{topic}}">
+						class="form-control" id="topic" name="topic" placeholder="제목" value="{{topic}}" readonly/>
 				</div>
 				<div class="form-group">
-					<label for="exampleFormControlTextarea1">내용 (1500자 이하)</label>
+					<label for="exampleFormControlTextarea1">내용</label>
 					<textarea class="form-control" id="text" name="text" rows="10"
-						placeholder="내용 입력">{{text}}</textarea>
+						placeholder="내용 입력" readonly/>{{text}}</textarea>
 				</div>
 				<div class="form-group">
 					<label for="exampleFormControlInput1">이메일 (답글 알림 수신용)</label> <input
 						type="email" class="form-control" id="email" name="email"
-						placeholder="name@example.com" value="{{email}}">
+						placeholder="name@example.com" value="{{email}}" readonly/>
 				</div>
 				<div class="form-group">
-					<label for="password">비밀번호 (삭제시 필요)</label> <input type="password"
+					<label for="password">비밀번호 (수정시 필요)</label> <input type="password"
 						class="form-control" id="newPassword" name="newPassword"
 						placeholder="Password">                 
 				</div>								

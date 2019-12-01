@@ -17,6 +17,13 @@ public class PostController {
 
 	@Autowired
 	private PostRepository postRepository;
+	
+	public boolean MatchPassword(Post post, String newPassword) {
+		if(post.matchPassword(newPassword))
+			return true;
+		
+		return false;
+	}
 
 	@GetMapping("/write")
 	public String postForm() {
@@ -28,7 +35,7 @@ public class PostController {
 		Post post = postRepository.findById(id).get();
 		System.out.println(newPassword);
 		System.out.println(post.getPassword());
-		if (!post.matchPassword(newPassword)) {
+		if (!MatchPassword(post, newPassword)) {
 			System.out.println("비밀번호 에러");
 			return "redirect:/posts";
 		}
@@ -45,12 +52,28 @@ public class PostController {
 		if (viewPost == null) {
 			return "redirect:/posts";
 		}
-		viewPost.increaseViewCount();
-		viewPost.update(viewPost);
-		postRepository.save(viewPost);
+		
 		model.addAttribute("posts", viewPost);
 		System.out.println(viewPost);
 		return "/post/postView";
+	}
+	
+	@PostMapping("{id}/postModify")
+	public String Modify(@PathVariable Long id, String newPassword, Post postModify, Model model) {
+		postModify = postRepository.findById(id).get();
+		if (postModify == null) {
+			return "redirect:/posts";
+		}
+		if (!MatchPassword(postModify, newPassword)) {
+			System.out.println("비밀번호 에러");
+			String redirect = "redirect:/posts/" + id + "/postView";
+			return redirect;
+		}
+		postModify.update(postModify);
+		postRepository.save(postModify);
+		model.addAttribute("posts", postModify);
+		System.out.println(postModify);
+		return "/post/postModify";
 	}
 
 	@PostMapping("")
@@ -97,5 +120,12 @@ public class PostController {
 
 		System.out.println("KINDS LOADING SUCCESS");
 		return "/post/postList";
+	}
+	
+	public boolean matchPassword(Post post, String newPassword) {
+		if(post.matchPassword(newPassword))
+			return true;
+		
+		return false;
 	}
 }
