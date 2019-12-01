@@ -1,4 +1,7 @@
-blog\excelk\net\web\PostController.class
 blog\excelk\net\ExcelkBlogApplication.class
+blog\excelk\net\post\Post.class
+blog\excelk\net\PostRepository.class
 blog\excelk\net\web\HomeController.class
+blog\excelk\net\post\PostRepository.class
 blog\excelk\net\WebConfiguration.class
+blog\excelk\net\post\PostController.class
