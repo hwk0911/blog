@@ -52,7 +52,9 @@ public class PostController {
 		if (viewPost == null) {
 			return "redirect:/posts";
 		}
-		
+		viewPost.increaseViewCount();
+		viewPost.update(viewPost);
+		postRepository.save(viewPost);
 		model.addAttribute("posts", viewPost);
 		System.out.println(viewPost);
 		return "/post/postView";
